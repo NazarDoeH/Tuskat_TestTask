@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
 
-    public void AttackClosest()
+    public void AttackClosest(InputAction.CallbackContext context)
     {
-        enemyManager.GetClosestEnemy()?.Kill();
+        if(context.phase == InputActionPhase.Performed) enemyManager.GetClosestEnemy()?.Kill();
     }
 }

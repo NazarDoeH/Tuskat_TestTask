@@ -76,7 +76,7 @@ public class EnemyManager : MonoBehaviour
         
         return new Vector3(
             _playerTransform.position.x + x,
-            0f,
+            1f,
             _playerTransform.position.z + y);
     }
 

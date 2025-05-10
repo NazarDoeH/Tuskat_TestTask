@@ -36,6 +36,7 @@ public abstract class Movement : MonoBehaviour
 
     void ApplyMovement(Vector2 inputAcceleration)
     {
+        ApplyRotation();
         Vector3 forceDirection = new Vector3(
             inputAcceleration.y,
             0,
@@ -45,6 +46,18 @@ public abstract class Movement : MonoBehaviour
         float projectedSpeed = Vector3.Dot(horizontalVelocity, forceDirection);
         if(projectedSpeed < maxSpeed)
             _rb.AddForce(forceDirection * inputAcceleration.magnitude, ForceMode.Acceleration);
+    }
+
+    void ApplyRotation()
+    {
+        Vector3 horizontalVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
+
+        if (horizontalVelocity.sqrMagnitude > 0.001f)
+        {
+            Vector3 lookDirection = new Vector3(horizontalVelocity.x, 0, -horizontalVelocity.z);
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Euler(0, -targetRotation.eulerAngles.y, 0);
+        }
     }
 
     protected abstract Vector2 GetInput();
