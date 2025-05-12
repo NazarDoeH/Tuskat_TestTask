@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovment : Movement
+public class PlayerMovement : Movement
 {
     private Vector2 _playerInput;
     public void ReceiveMovement(InputAction.CallbackContext context)

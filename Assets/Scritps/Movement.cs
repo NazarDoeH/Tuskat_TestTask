@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Movement : MonoBehaviour
 {
+    [Header("Speed")]
     [SerializeField] private float maxSpeed = 10.0f;
     [SerializeField] private float speedMultiplier = 10.0f;
+    [Header("Acceleration")]    
     [SerializeField] private AnimationCurve accelerationCurve;
     [SerializeField] private float accelerationTime = 1f;
     
@@ -17,6 +19,7 @@ public abstract class Movement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
+    //Movement input and Acceleration timer
     void Update()
     {
         _movementInput = GetInput();
@@ -34,6 +37,7 @@ public abstract class Movement : MonoBehaviour
         ApplyMovement(acceleration);
     }
 
+    // Apply movement
     void ApplyMovement(Vector2 inputAcceleration)
     {
         ApplyRotation();
@@ -48,6 +52,7 @@ public abstract class Movement : MonoBehaviour
             _rb.AddForce(forceDirection * inputAcceleration.magnitude, ForceMode.Acceleration);
     }
 
+    //Apply rotation
     void ApplyRotation()
     {
         Vector3 horizontalVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z);
@@ -59,6 +64,6 @@ public abstract class Movement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, -targetRotation.eulerAngles.y, 0);
         }
     }
-
+    
     protected abstract Vector2 GetInput();
 }

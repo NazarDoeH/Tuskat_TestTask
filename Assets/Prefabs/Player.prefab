@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2716657566086342996}
   - component: {fileID: 797678523208026408}
-  - component: {fileID: 4600007879671364409}
+  - component: {fileID: 3522669976855755791}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &4600007879671364409
+--- !u!114 &3522669976855755791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 0}
+  failedAttackEffect: {fileID: 8453930043991702087, guid: 332dac436af2c0f419352e511c4b650e, type: 3}
 --- !u!114 &5125381089698096461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +303,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damageEffect: {fileID: 8453930043991702087, guid: 10a4c0f0fe4575a44ac803a4aa45a35b, type: 3}
+  deathEffect: {fileID: 8453930043991702087, guid: 338cbbe3a762bfc479f63eaee27f5b47, type: 3}
+  sceneManager: {fileID: 0}
 --- !u!54 &7499907675301887042
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -327,7 +331,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &6556509124946256302
 GameObject:

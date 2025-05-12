@@ -358,8 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37579464eb326f047b56b01bf8a89185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectedMaterial: {fileID: 2100000, guid: 96d10b10b8ca9134ca54bc4c10bf13aa, type: 2}
-  _defaultMaterial: {fileID: 2100000, guid: 0360b05ef146cb446836f9486f694bbd, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 96d10b10b8ca9134ca54bc4c10bf13aa, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 0360b05ef146cb446836f9486f694bbd, type: 2}
+  deathEffect: {fileID: 8453930043991702087, guid: 9ef3f8cd8ab30a14cb08451b959d5367, type: 3}
 --- !u!114 &5648327676265919367
 MonoBehaviour:
   m_ObjectHideFlags: 0

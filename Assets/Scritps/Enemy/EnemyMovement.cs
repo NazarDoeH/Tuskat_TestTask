@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class EnemyMovment : Movement
+public class EnemyMovement : Movement
 {
     [SerializeField] private EnemyNavigator navigator;
     
     protected override Vector2 GetInput()
     {
-        return navigator.GetTargetDirection();;
+        return navigator.GetTargetDirection();
     }
 }

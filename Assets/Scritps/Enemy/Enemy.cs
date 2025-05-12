@@ -3,39 +3,33 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Material _selectedMaterial;
-    [SerializeField] private Material _defaultMaterial;
+    [Header("Effects")]
+    [SerializeField] private GameObject deathEffect;
  
     private EnemyManager _enemyManager;
-    
-    private MeshRenderer _meshRenderer;
     private Rigidbody _rigidbody;
 
     void Start()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
         _rigidbody = GetComponent<Rigidbody>();
     }
-
-    public void IndicateClosest(bool isClosest)
-    {
-        _meshRenderer.material = isClosest ? _selectedMaterial : _defaultMaterial;
-    }
-
+    
     public void SetEnemyManager(EnemyManager manager)
     {
         _enemyManager = manager;
     }
 
+    //Handles the enemy's death
     public void Kill()
     {
         ResetToDefault();
         _enemyManager.ReturnEnemy(this);
     }
 
+    //Resets the enemy's state and spawns a death effect
     private void ResetToDefault()
     {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         _rigidbody.linearVelocity = Vector3.zero;
-        IndicateClosest(false);
     }
 }
